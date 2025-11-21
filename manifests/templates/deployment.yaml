@@ -1,0 +1,25 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lolopopo
+  labels:
+    app: lolopopo
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: lolopopo
+  template:
+    metadata:
+      labels:
+        app: lolopopo
+    spec:
+      containers:
+        - name: lolopopo
+          image: docker.io/phengbunath/lolopopo:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
